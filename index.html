@@ -196,9 +196,13 @@
             .main-nav {
                 position: absolute;
                 top: 100%;
-                left: 0;
                 right: 0;
-                background: rgba(6, 10, 19, 0.98);
+                left: auto;
+                width: 100%;
+                max-width: 400px;
+                background: #060a13;
+                border: 1px solid rgba(0, 210, 255, 0.2);
+                border-radius: 0 0 0 12px;
                 flex-direction: column;
                 align-items: center;
                 gap: 18px;
@@ -207,7 +211,7 @@
                 pointer-events: none;
                 transform: translateY(-10px);
                 transition: opacity 0.28s ease, transform 0.28s ease;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+                box-shadow: -10px 20px 60px rgba(0, 0, 0, 0.5);
                 z-index: 5;
             }
 
@@ -222,6 +226,21 @@
                 width: calc(100% - 40px);
                 max-width: 360px;
                 text-align: center;
+                padding: 12px 20px;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+            }
+
+            nav.main-nav a {
+                color: #00d2ff;
+                font-weight: 600;
+                border: 1px solid rgba(0, 210, 255, 0.3);
+            }
+
+            nav.main-nav a:hover {
+                background: rgba(0, 210, 255, 0.1);
+                border-color: #00d2ff;
+                transform: translateX(-5px);
             }
 
             .mobile-nav-toggle {
