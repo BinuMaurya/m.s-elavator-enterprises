@@ -128,56 +128,11 @@
             box-shadow: 0 10px 24px rgba(0, 210, 255, 0.3);
         }
 
-        .mobile-nav-toggle {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: none;
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: background 0.25s ease, transform 0.25s ease;
-        }
 
-        .mobile-nav-toggle:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-1px);
-        }
-
-        .mobile-nav-toggle .hamburger {
-            display: inline-block;
-            width: 18px;
-            height: 2px;
-            background: #ffffff;
-            position: relative;
-        }
-
-        .mobile-nav-toggle .hamburger::before,
-        .mobile-nav-toggle .hamburger::after {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 2px;
-            background: #ffffff;
-            left: 0;
-            transition: transform 0.25s ease;
-        }
-
-        .mobile-nav-toggle .hamburger::before {
-            top: -6px;
-        }
-
-        .mobile-nav-toggle .hamburger::after {
-            top: 6px;
-        }
 
         .hero-content {
             position: relative;
-            z-index: 3;
+            z-index: 2;
             padding: 0 6%;
             max-width: 900px;
             margin-top: auto;
@@ -190,81 +145,6 @@
             justify-content: flex-end;
             align-items: center;
             gap: 12px;
-        }
-
-        @media (max-width: 1024px) {
-            .main-nav {
-                position: absolute;
-                top: 70px;
-                right: 0;
-                left: 0;
-                width: 100%;
-                max-width: 100%;
-                background: #060a13;
-                border: 1px solid #00d2ff;
-                border-radius: 0;
-                flex-direction: column;
-                align-items: center;
-                gap: 18px;
-                padding: 20px 0 28px;
-                opacity: 0;
-                pointer-events: none;
-                transform: translateY(-10px);
-                transition: opacity 0.28s ease, transform 0.28s ease;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-                z-index: 99999 !important;
-            }
-                pointer-events: none;
-                transform: translateY(-10px);
-                transition: opacity 0.28s ease, transform 0.28s ease;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-                z-index: 100;
-            }
-
-            .main-nav.open {
-                opacity: 1;
-                pointer-events: auto;
-                transform: translateY(0);
-            }
-
-            nav.main-nav a,
-            .nav-whatsapp-btn {
-                width: calc(100% - 40px);
-                max-width: 360px;
-                text-align: center;
-                padding: 12px 20px;
-                border-radius: 6px;
-                transition: all 0.3s ease;
-            }
-
-            .main-nav .nav-whatsapp-btn {
-                background: #00d2ff;
-                color: #ffffff;
-                border: 2px solid #00d2ff;
-                font-weight: 700;
-            }
-
-            .main-nav .nav-whatsapp-btn:hover {
-                background: #0099cc;
-                border-color: #0099cc;
-            }
-
-            nav.main-nav a {
-                color: #00d2ff;
-                font-weight: 600;
-                border: 2px solid #00d2ff;
-                background: #f0f9ff;
-            }
-
-            nav.main-nav a:hover {
-                background: #00d2ff;
-                color: #ffffff;
-                transform: translateX(-5px);
-            }
-
-            .mobile-nav-toggle {
-                display: inline-flex;
-            }
         }
 
         @media (max-width: 768px) {
@@ -585,77 +465,6 @@
                 justify-content: center;
                 gap: 10px;
             }
-
-            /* Mobile Menu White Background Fix */
-            .main-nav {
-                position: absolute;
-                top: 70px;
-                right: 0;
-                left: 0;
-                width: 100%;
-                max-width: 100%;
-                background: #060a13;
-                border: 1px solid #00d2ff;
-                border-radius: 0;
-                flex-direction: column;
-                align-items: center;
-                gap: 18px;
-                padding: 20px 0 28px;
-                opacity: 0;
-                pointer-events: none;
-                transform: translateY(-10px);
-                transition: opacity 0.28s ease, transform 0.28s ease;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-                z-index: 99999 !important;
-            }
-
-            .main-nav.open {
-                opacity: 1;
-                pointer-events: auto;
-                transform: translateY(0);
-            }
-
-            nav.main-nav a {
-                color: #00d2ff;
-                font-weight: 600;
-                border: 2px solid #00d2ff;
-                background: #f0f9ff;
-                width: calc(100% - 40px);
-                max-width: 360px;
-                padding: 12px 20px;
-                border-radius: 6px;
-                display: block;
-                cursor: pointer;
-            }
-
-            nav.main-nav a:hover {
-                background: #00d2ff;
-                color: #ffffff;
-                transform: translateX(-5px);
-            }
-
-            .main-nav .nav-whatsapp-btn {
-                background: #00d2ff;
-                color: #ffffff;
-                border: 2px solid #00d2ff;
-                font-weight: 700;
-                width: calc(100% - 40px);
-                max-width: 360px;
-                padding: 12px 20px;
-                border-radius: 6px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                cursor: pointer;
-                text-decoration: none;
-            }
-
-            .main-nav .nav-whatsapp-btn:hover {
-                background: #0099cc;
-                border-color: #0099cc;
-            }
-
             .hero-content p {
                 font-size: 1.05rem;
                 max-width: 100%;
@@ -684,820 +493,133 @@
             .contact-container { gap: 30px; }
             .nav-whatsapp-btn { font-size: 0.85rem; padding: 10px 14px; }
         }
-
-        /* ================= ABOUT SECTION STYLING ================= */
-.about-section {
-    padding: 100px 8%;
-    background-color: #0d1527; /* Rich dark theme match */
-    position: relative;
-    z-index: 4;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.about-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-text-block .sub-title {
-    color: #00d2ff;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.about-text-block h2 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: #ffffff;
-}
-
-.title-line-left {
-    width: 60px;
-    height: 3px;
-    background: #00d2ff;
-    margin: 20px 0 30px 0;
-}
-
-.about-desc {
-    font-size: 1.1rem;
-    color: #cbd5e1;
-    line-height: 1.8;
-    margin-bottom: 35px;
-}
-
-/* Owner Profile Box */
-.owner-badge {
-    display: flex;
-    gap: 20px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 25px;
-    border-radius: 8px;
-    align-items: flex-start;
-}
-
-.owner-icon {
-    font-size: 2rem;
-    background: rgba(0, 210, 255, 0.1);
-    padding: 10px;
-    border-radius: 6px;
-    line-height: 1;
-}
-
-.owner-info h4 {
-    font-size: 1.2rem;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-
-.owner-info p {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    line-height: 1.5;
-}
-
-/* Stats Layout Grid */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.stat-card {
-    background: #060a13;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 30px 20px;
-    border-radius: 6px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-}
-
-.stat-card.highlight {
-    border-color: #00d2ff;
-    background: linear-gradient(135deg, rgba(0, 210, 255, 0.05) 0%, transparent 100%);
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #00d2ff;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.stat-card h4 {
-    font-size: 1.1rem;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.stat-card p {
-    font-size: 0.85rem;
-    color: #64748b;
-    line-height: 1.4;
-}
-
-/* Responsive Setup */
-@media (max-width: 992px) {
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .about-text-block h2 {
-        font-size: 2.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* ================= TEAM HIERARCHY STYLING ================= */
-.team-hierarchy-section {
-    padding: 100px 8%;
-    background-color: #0d1527; /* Deep rich layout matching your main page */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.hierarchy-title-box {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.hierarchy-title-box .sub-title {
-    color: #00d2ff;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 700;
-}
-
-.hierarchy-title-box h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-top: 10px;
-}
-
-.hierarchy-subtitle {
-    color: #94a3b8;
-    max-width: 700px;
-    margin: 15px auto 0;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.hierarchy-tree-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-/* Common Profile Card Design */
-.hierarchy-level {
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.node-badge {
-    background: rgba(0, 210, 255, 0.1);
-    color: #00d2ff;
-    padding: 6px 16px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    border-radius: 30px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0, 210, 255, 0.2);
-}
-
-.profile-card {
-    display: table; /* Table model setup fallback for older engine compatibility */
-    width: 100%;
-    background: #060a13;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-.premium-border {
-    border: 2px solid #00d2ff;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-}
-
-.manager-border {
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.profile-img-box {
-    display: table-cell;
-    width: 250px;
-    height: 280px;
-    vertical-align: middle;
-    background: #02060d;
-}
-
-.profile-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-details {
-    display: table-cell;
-    vertical-align: top;
-    padding: 35px;
-}
-
-.profile-details h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.company-tag {
-    color: #00d2ff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-top: 4px;
-    margin-bottom: 15px;
-}
-
-.profile-bio {
-    color: #cbd5e1;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* Connecting Flow Arrows */
-.hierarchy-flow-line {
-    font-size: 1.5rem;
-    color: rgba(0, 210, 255, 0.4);
-    margin: 25px 0;
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
-}
-
-/* Workforce Bottom Grid Setup */
-.workforce-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    width: 100%;
-}
-
-.workforce-group-card {
-    background: #060a13;
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.workforce-group-card:hover {
-    border-color: rgba(0, 210, 255, 0.3);
-    transform: translateY(-5px);
-}
-
-.group-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.workforce-group-card h4 {
-    font-size: 1.25rem;
-    color: #ffffff;
-}
-
-.group-count {
-    color: #00d2ff;
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin: 6px 0 15px 0;
-}
-
-.group-desc {
-    color: #94a3b8;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* Responsive Structural Breakpoints */
-@media (max-width: 768px) {
-    .profile-card {
-        display: block;
-    }
-    .profile-img-box {
-        display: block;
-        width: 100%;
-        height: 300px;
-    }
-    .profile-details {
-        display: block;
-        padding: 25px;
-    }
-    .workforce-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* ------------------ TEAM HIERARCHY SECTION (4 PHOTOS - UPDATED TO CIRCLES) ------------------ */
-.team-hierarchy-section {
-    padding: 100px 8%;
-    background-color: #0d1527;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.hierarchy-title-box {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.hierarchy-title-box .sub-title {
-    color: #00d2ff;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 700;
-}
-
-.hierarchy-title-box h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-top: 10px;
-}
-
-.hierarchy-subtitle {
-    color: #94a3b8;
-    max-width: 700px;
-    margin: 15px auto 0;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.hierarchy-tree-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.hierarchy-level {
-    width: 100%;
-    max-width: 850px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.node-badge {
-    background: rgba(0, 210, 255, 0.1);
-    color: #00d2ff;
-    padding: 6px 16px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    border-radius: 30px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0, 210, 255, 0.2);
-}
-
-.profile-card-horizontal {
-    display: flex;
-    align-items: center; /* Photo aur text ko vertical center karne ke liye */
-    width: 100%;
-    background: #060a13;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    padding: 20px; /* Sahi spacing ke liye padding */
-}
-
-.premium-border {
-    border: 2px solid #00d2ff;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-}
-
-.manager-border {
-    border: 1px solid rgba(255,255,255,0.15);
-}
-
-/* Owner aur Manager ke liye Gol Circle Design */
-.profile-img-horizontal {
-    width: 150px;
-    height: 150px;
-    flex-shrink: 0;
-    border-radius: 50%; /* Perfect circle */
-    overflow: hidden;
-    border: 3px solid rgba(0, 210, 255, 0.4);
-    margin-right: 20px;
-}
-
-.profile-img-horizontal img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-details-horizontal {
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-}
-
-.profile-details-horizontal h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.company-tag {
-    color: #00d2ff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-top: 4px;
-    margin-bottom: 12px;
-}
-
-.profile-bio {
-    color: #cbd5e1;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.hierarchy-flow-line {
-    font-size: 1.5rem;
-    color: rgba(0, 210, 255, 0.4);
-    margin: 20px 0;
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
-}
-
-/* 2-Column Site Incharge Row */
-.supervisors-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    width: 100%;
-    max-width: 850px;
-}
-
-.supervisor-card {
-    background: #060a13;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Content ko center me laane ke liye */
-    padding: 25px 20px;
-}
-
-/* Dono Site Incharges ke liye Gol Circle Design */
-.supervisor-img-box {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%; /* Perfect circle */
-    overflow: hidden;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 15px;
-    background: #02060d;
-}
-
-.supervisor-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.supervisor-details {
-    text-align: center; /* Text alignment center */
-    width: 100%;
-}
-
-.supervisor-details h4 {
-    font-size: 1.3rem;
-    color: #ffffff;
-}
-
-.supervisor-details p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-top: 10px;
-    color: #cbd5e1;
-}
-
-/* Labour Bottom Section */
-.labour-showcase-card {
-    background: linear-gradient(135deg, #060a13 0%, #03070e 100%);
-    border: 1px dashed rgba(0, 210, 255, 0.3);
-    border-radius: 12px;
-    padding: 35px;
-    text-align: center;
-    width: 100%;
-    max-width: 850px;
-}
-
-@media (max-width: 768px) {
-    .profile-card-horizontal { flex-direction: column; text-align: center; }
-    .profile-img-horizontal { margin-right: 0; margin-bottom: 15px; }
-    .supervisors-row { grid-template-columns: 1fr; }
-}
-
-/* Contact section responsive overrides */
-.contact-info-box,
-.contact-form-box {
-    width: 100%;
-}
-
-.hierarchy-level {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            margin-bottom: 20px;
-        }
-        /* Staggered Delay for 4 Levels */
-        .level-1 { animation-delay: 0.1s; }
-        .level-2 { animation-delay: 0.3s; }
-        .level-3-1 { animation-delay: 0.5s; }
-        .level-3-2 { animation-delay: 0.7s; }
-        .level-4 { animation-delay: 0.9s; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Flow Arrow Animation */
-        .hierarchy-flow-line {
-            text-align: center;
-            color: #00d2ff;
-            font-size: 1.5rem;
-            margin: 20px 0;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-            animation: pulseArrow 2s infinite;
-        }
-        @keyframes pulseArrow {
-            0%, 100% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(5px); opacity: 1; }
-        }
-
-        /* Core Card Premium Design */
-        .profile-card-horizontal {
-            display: flex;
-            background: linear-gradient(135deg, #0b1329 0%, #060a13 100%);
-            border-radius: 16px;
-            padding: 24px;
-            max-width: 900px;
-            margin: 0 auto;
-            align-items: center;
-            gap: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Border glow variants */
-        .premium-border { border: 1px solid rgba(0, 210, 255, 0.2); }
-        .manager-border { border: 1px solid rgba(0, 210, 255, 0.15); }
-        .supervisor-border { border: 1px solid rgba(255, 165, 0, 0.2); } 
-        .labour-border { border: 1px dashed rgba(0, 210, 255, 0.25); } /* Creative tech border for workforce */
-
-        /* Hover Interactive Animations */
-        .profile-card-horizontal:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.15);
-        }
-        .premium-border:hover { border-color: #00d2ff; box-shadow: 0 0 25px rgba(0, 210, 255, 0.25); }
-        .manager-border:hover { border-color: #00ffcc; box-shadow: 0 0 25px rgba(0, 255, 128, 0.2); }
-        .supervisor-border:hover { border-color: #ffa500; box-shadow: 0 0 25px rgba(255, 165, 0, 0.25); }
-        .labour-border:hover { border-color: #00d2ff; border-style: solid; box-shadow: 0 0 25px rgba(0, 210, 255, 0.2); }
-
-        /* Badge Styles */
-        .node-badge {
-            text-align: center;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
+        /* ==========================================================================
+           FIX: RESPONSIVE NAVIGATION MENU (Mobile-First)
+           ========================================================================== */
+
+        /* --- Base Styles (Mobile) --- */
+        /* By default, the menu is set up for mobile */
+        .menu-toggle-btn {
+            display: block; /* Show button on mobile */
+            background: #00d2ff;
+            color: #060a13;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
             font-weight: 700;
-        }
-
-        /* Image Containers */
-        .profile-img-horizontal {
-            width: 160px;
-            height: 160px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-            transition: transform 0.4s ease;
-        }
-        .profile-card-horizontal:hover .profile-img-horizontal {
-            transform: rotate(3deg) scale(1.05);
-        }
-        .profile-img-horizontal img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Typography & Details */
-        .profile-details-horizontal { flex-grow: 1; }
-        .profile-details-horizontal h3 {
-            margin: 0 0 6px 0;
-            font-size: 1.5rem;
-            color: #ffffff;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .company-tag {
-            margin: 0 0 12px 0;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        .profile-bio {
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #cbd5e1;
-        }
-
-        /* Responsive Breakpoint for Tablets/Mobiles */
-        @media (max-width: 768px) {
-            .profile-card-horizontal {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-            }
-            .profile-img-horizontal { width: 140px; height: 140px; }
-        }
-
-        /* Theme Toggle Button */
-        .theme-toggle-btn {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: 2px solid #00d2ff;
-            background: rgba(0, 210, 255, 0.1);
-            color: #00d2ff;
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            pointer-events: auto;
-            z-index: 10;
+            font-size: 0.9rem;
         }
 
-        .theme-toggle-btn:hover {
-            background: #00d2ff;
-            color: #060a13;
+        .main-nav {
+            display: none; /* Hide nav list on mobile by default */
         }
 
-        @media (max-width: 768px) {
-            .theme-toggle-btn {
-                display: flex;
-            }
-        }
-
-        /* White Menu Theme */
-        .main-nav.white-theme {
-            background: #ffffff;
-            border: 1px solid #00d2ff;
-        }
-
-        .main-nav.white-theme a {
-            color: #00d2ff;
-            background: #f0f9ff;
-            border: 2px solid #00d2ff;
-        }
-
-        .main-nav.white-theme a:hover {
-            background: #00d2ff;
-            color: #ffffff;
-        }
-
-        /* Black Menu Theme */
-        .main-nav.black-theme {
-            background: #060a13;
-            border: 1px solid rgba(0, 210, 255, 0.3);
-        }
-
-        .main-nav.black-theme a {
-            color: #ffffff;
-            background: rgba(0, 210, 255, 0.1);
-            border: 1px solid rgba(0, 210, 255, 0.5);
-        }
-
-        .main-nav.black-theme a:hover {
-            background: #00d2ff;
-            color: #060a13;
-            border-color: #00d2ff;
-        }
-
-        /* Menu Backdrop Overlay */
-        .menu-backdrop {
-            display: none;
-            position: fixed;
-            top: 80px;
+        .main-nav.open {
+            display: flex; /* Show when JS adds .open class */
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
             left: 0;
             width: 100%;
-            height: calc(100% - 80px);
-            background: #000000;
-            z-index: 3;
-            animation: fadeIn 0.2s ease;
-            pointer-events: auto;
+            background-color: #060a13;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+            z-index: 99999;
+            gap: 12px;
         }
 
-        .menu-backdrop.show {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @media (max-width: 1024px) {
-            .menu-backdrop {
-                display: none;
+        /* --- Desktop Styles (Applied when screen is 769px or wider) --- */
+        @media (min-width: 769px) {
+            .menu-toggle-btn {
+                display: none; /* Hide button on desktop */
             }
-            .menu-backdrop.show {
-                display: block;
+
+            .main-nav, .main-nav.open { /* Apply to nav whether it's open or not */
+                display: flex;
+                flex-direction: row;
+                position: static;
+                background: transparent;
+                box-shadow: none;
+                width: auto;
+                height: auto;
+                padding: 0;
+                gap: 20px;
             }
         }
 
-        /* Light Mode Styling */
-        body.light-mode {
-            background-color: #f8fafc !important;
-            color: #0f172a !important;
+        /* This media query ensures the hero content is layered correctly on mobile */
+        @media (max-width: 768px) {
+            /* The hero section z-index is still needed to ensure it goes behind the open menu */
+            .hero-section, .hero-content, h1, p {
+                position: relative !important;
+                z-index: 5 !important;
+            }
+        }
+        /* ================= FORCE REFRESH FOR LAPTOP & MOBILE ================= */
+
+        /* 1. LAPTOP SCREEN DISPLAY (Pehle se chal rahi saari mobile settings ko block karega) */
+        @media (min-width: 769px) {
+            /* Mobile button ko laptop par dikhne se rokega */
+            .menu-toggle-btn {
+                display: none !important;
+            }
+
+            /* Saare links ko ek simple transparent line me layega, dabba gayab */
+            .navbar-links {
+                display: flex !important;
+                flex-direction: row !important;
+                position: static !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                width: auto !important;
+                padding: 0 !important;
+            }
+            
+            .navbar-links li a {
+                background: transparent !important;
+                border: none !important;
+                color: #ffffff !important;
+            }
         }
 
-        body.light-mode .hero-section, 
-        body.light-mode .about-section,
-        body.light-mode .team-hierarchy-section,
-        body.light-mode .contact-section {
-            background: #ffffff !important;
-            color: #0f172a !important;
-        }
+        /* 2. MOBILE SCREEN DISPLAY (Sirf mobile par design switch karega) */
+        @media (max-width: 768px) {
+            .menu-toggle-btn {
+                display: block !important; /* Mobile par button dikhega */
+            }
 
-        body.light-mode h1, 
-        body.light-mode h2, 
-        body.light-mode h3,
-        body.light-mode p {
-            color: #0f172a !important;
-        }
+            .navbar-links {
+                display: none !important; /* Default me hidden */
+                flex-direction: column !important;
+                position: absolute !important;
+                top: 100% !important;
+                left: 0 !important;
+                width: 100% !important;
+                background-color: #060a13 !important; /* Solid black/dark background */
+                padding: 20px !important;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+                z-index: 99999 !important;
+            }
 
-        body.light-mode .tagline {
-            color: #00d2ff !important;
-        }
-
-        body.light-mode .section-title-box h2 {
-            color: #0f172a !important;
-        }
-
-        body.light-mode nav a {
-            color: #0f172a !important;
-        }
-
-        body.light-mode .main-nav {
-            background: #ffffff !important;
-        }
-
-        body.light-mode .main-nav a {
-            color: #0f172a !important;
-            background: #f0f9ff !important;
-            border-color: #00d2ff !important;
+            /* Jab javascript toggle active karega */
+            .navbar-links.active {
+                display: flex !important;
+            }
+            
+            /* Mobile ke dabbe ke buttons */
+            .navbar-links li a {
+                display: block !important;
+                background: #111927 !important;
+                border: 1px solid #00d2ff !important;
+                margin-bottom: 8px !important;
+                text-align: center !important;
+                border-radius: 4px !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="menu-backdrop" id="menu-backdrop"></div>
 
     <section class="hero" id="home">
         <video autoplay loop muted playsinline class="hero-video">
@@ -1505,36 +627,31 @@
         </video>
         <div class="hero-overlay"></div>
 
-        <header>
-            <div class="logo">
-                <img src="Screenshot 2026-06-25 022646.png" alt="M.S Elevators Logo" class="header-logo">
-                <span>M.S <span>Elevators</span></span>
+        <!-- COMPLETE FIXED HEADER NAV BLOCK -->
+        <nav style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; background: #060a13; border-bottom: 1px solid rgba(0, 210, 255, 0.2); z-index: 100000;">
+            
+            <!-- Left Side: Logo & Brand Name -->
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <img src="logo.png" alt="M.S Logo" style="height: 40px; width: auto; object-fit: contain;" onerror="this.style.display='none';">
+                <span style="font-size: 1.5rem; font-weight: 800; color: #ffffff; letter-spacing: 1px; font-family: sans-serif;">
+                    M.S <span style="color: #00d2ff;">ELEVATORS</span>
+                </span>
             </div>
-            <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span class="hamburger"></span>
-                Menu
-            </button>
-            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle menu theme">
-                🌙 Dark/Light
-            </button>
-            <nav class="main-nav white-theme">
-                <a href="#home">Home</a>
-                <a href="#videos">System Videos</a>
-                <a href="#gallery">Site Photos</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact Us</a>
-                <!-- Top Header WhatsApp Button -->
-                <a href="https://wa.me/918850886459?text=Hello%20Sir,%20I%20visited%20your%20website%20and%20want%20to%20inquire." 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="nav-whatsapp-btn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px; vertical-align: middle;">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.66.986 3.292 1.481 4.793 1.483 5.404 0 9.792-4.383 9.795-9.774.002-2.611-1.012-5.066-2.857-6.914C16.483 2.102 14.032 1.085 11.42 1.085 6.015 1.085 1.626 5.47 1.623 10.862c-.001 1.61.432 3.181 1.256 4.588l-.995 3.633 3.763-.987z"/>
-                    </svg>
-                    Chat With Us
-                </a>
-            </nav>
-        </header>
+
+            <!-- Center/Right Side: Laptop Tabs (Yeh class responsive.css se direct control hogi) -->
+            <!-- 💡 TIP: Is ul tag ko dhayan se dekhiye, isme jo class hai vahi aapki CSS me honi chahiye -->
+            <ul 
+">
+    <li><a href="#home" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">Home</a></li>
+    <li><a href="#videos" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">System Videos</a></li>
+    <li><a href="#photos" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">Site Photos</a></li>
+    <li><a href="#about" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">About Us</a></li>
+    <li><a href="#contact" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">Contact Us</a></li>
+            </ul>
+
+            <!-- Mobile Button (Yeh laptop par CSS ke through gayab ho jayega) -->
+            
+        </nav>
 
         <div class="hero-content">
             <span class="tagline">M.S Enterprises Infrastructure</span>
@@ -1881,71 +998,19 @@
     </footer>
     <script>
         const mobileNavToggle = document.getElementById('mobile-nav-toggle');
-        const mobileNav = document.querySelector('nav.main-nav');
-        const menuBackdrop = document.getElementById('menu-backdrop');
+        const mobileNav = document.querySelector('.navbar-links');
 
         if (mobileNavToggle && mobileNav) {
             mobileNavToggle.addEventListener('click', () => {
-                const isOpen = mobileNav.classList.toggle('open');
-                menuBackdrop.classList.toggle('show');
+                const isOpen = mobileNav.classList.toggle('active');
                 mobileNavToggle.setAttribute('aria-expanded', isOpen);
             });
 
             document.addEventListener('click', (event) => {
-                if (!mobileNav.contains(event.target) && !mobileNavToggle.contains(event.target) && !menuBackdrop.contains(event.target) && mobileNav.classList.contains('open')) {
-                    mobileNav.classList.remove('open');
-                    menuBackdrop.classList.remove('show');
+                if (!mobileNav.contains(event.target) && !mobileNavToggle.contains(event.target) && mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
                     mobileNavToggle.setAttribute('aria-expanded', 'false');
                 }
-            });
-
-            // Close menu when backdrop is clicked
-            if (menuBackdrop) {
-                menuBackdrop.addEventListener('click', () => {
-                    mobileNav.classList.remove('open');
-                    menuBackdrop.classList.remove('show');
-                    mobileNavToggle.setAttribute('aria-expanded', 'false');
-                });
-            }
-        }
-
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const mainNav = document.querySelector('nav.main-nav');
-
-        function updateThemeButtonText(theme) {
-            if (themeToggle) {
-                themeToggle.textContent = theme === 'white-theme' ? '⚫ Switch to Dark' : '⚪ Switch to Light';
-            }
-        }
-
-        // Load saved theme preference from localStorage
-        const savedTheme = localStorage.getItem('menuTheme') || 'white-theme';
-        mainNav.classList.remove('white-theme', 'black-theme');
-        mainNav.classList.add(savedTheme);
-        updateThemeButtonText(savedTheme);
-
-        // Handle both click and touchstart for mobile
-        if (themeToggle) {
-            ['click', 'touchstart'].forEach(eventType => {
-                themeToggle.addEventListener(eventType, function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Toggle body light mode
-                    document.body.classList.toggle('light-mode');
-                    
-                    // Toggle menu theme
-                    const isWhiteTheme = mainNav.classList.contains('white-theme');
-                    const newTheme = isWhiteTheme ? 'black-theme' : 'white-theme';
-                    
-                    mainNav.classList.remove('white-theme', 'black-theme');
-                    mainNav.classList.add(newTheme);
-                    localStorage.setItem('menuTheme', newTheme);
-                    updateThemeButtonText(newTheme);
-                    
-                    console.log('Theme changed to:', newTheme);
-                }, { passive: false });
             });
         }
     </script>
