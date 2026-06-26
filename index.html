@@ -1364,6 +1364,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
+            pointer-events: auto;
+            z-index: 10;
         }
 
         .theme-toggle-btn:hover {
@@ -1420,10 +1422,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 4;
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(4px);
             animation: fadeIn 0.3s ease;
+            pointer-events: auto;
         }
 
         .menu-backdrop.show {
@@ -1862,6 +1865,12 @@
         const themeToggle = document.getElementById('theme-toggle');
         const mainNav = document.querySelector('nav.main-nav');
 
+        function updateThemeButtonText(theme) {
+            if (themeToggle) {
+                themeToggle.textContent = theme === 'white-theme' ? '⚫ Switch to Dark' : '⚪ Switch to Light';
+            }
+        }
+
         // Load saved theme preference from localStorage
         const savedTheme = localStorage.getItem('menuTheme') || 'white-theme';
         mainNav.classList.remove('white-theme', 'black-theme');
@@ -1869,21 +1878,20 @@
         updateThemeButtonText(savedTheme);
 
         if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = mainNav.classList.contains('white-theme') ? 'white-theme' : 'black-theme';
-                const newTheme = currentTheme === 'white-theme' ? 'black-theme' : 'white-theme';
+            themeToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 
-                mainNav.classList.remove(currentTheme);
+                const isWhiteTheme = mainNav.classList.contains('white-theme');
+                const newTheme = isWhiteTheme ? 'black-theme' : 'white-theme';
+                
+                mainNav.classList.remove('white-theme', 'black-theme');
                 mainNav.classList.add(newTheme);
                 localStorage.setItem('menuTheme', newTheme);
                 updateThemeButtonText(newTheme);
+                
+                console.log('Theme changed to:', newTheme);
             });
-        }
-
-        function updateThemeButtonText(theme) {
-            if (themeToggle) {
-                themeToggle.textContent = theme === 'white-theme' ? '⚫ Switch to Dark' : '⚪ Switch to Light';
-            }
         }
     </script>
 </body>
