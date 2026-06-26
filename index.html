@@ -1348,6 +1348,69 @@
             }
             .profile-img-horizontal { width: 140px; height: 140px; }
         }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 2px solid #00d2ff;
+            background: rgba(0, 210, 255, 0.1);
+            color: #00d2ff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .theme-toggle-btn:hover {
+            background: #00d2ff;
+            color: #060a13;
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle-btn {
+                display: flex;
+            }
+        }
+
+        /* White Menu Theme */
+        .main-nav.white-theme {
+            background: #ffffff;
+            border: 1px solid #00d2ff;
+        }
+
+        .main-nav.white-theme a {
+            color: #00d2ff;
+            background: #f0f9ff;
+            border: 2px solid #00d2ff;
+        }
+
+        .main-nav.white-theme a:hover {
+            background: #00d2ff;
+            color: #ffffff;
+        }
+
+        /* Black Menu Theme */
+        .main-nav.black-theme {
+            background: #060a13;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+        }
+
+        .main-nav.black-theme a {
+            color: #ffffff;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.5);
+        }
+
+        .main-nav.black-theme a:hover {
+            background: #00d2ff;
+            color: #060a13;
+            border-color: #00d2ff;
+        }
     </style>
 </head>
 <body>
@@ -1367,7 +1430,10 @@
                 <span class="hamburger"></span>
                 Menu
             </button>
-            <nav class="main-nav">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle menu theme">
+                🌙 Dark/Light
+            </button>
+            <nav class="main-nav white-theme">
                 <a href="#home">Home</a>
                 <a href="#videos">System Videos</a>
                 <a href="#gallery">Site Photos</a>
@@ -1745,6 +1811,34 @@
                     mobileNavToggle.setAttribute('aria-expanded', 'false');
                 }
             });
+        }
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mainNav = document.querySelector('nav.main-nav');
+
+        // Load saved theme preference from localStorage
+        const savedTheme = localStorage.getItem('menuTheme') || 'white-theme';
+        mainNav.classList.remove('white-theme', 'black-theme');
+        mainNav.classList.add(savedTheme);
+        updateThemeButtonText(savedTheme);
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = mainNav.classList.contains('white-theme') ? 'white-theme' : 'black-theme';
+                const newTheme = currentTheme === 'white-theme' ? 'black-theme' : 'white-theme';
+                
+                mainNav.classList.remove(currentTheme);
+                mainNav.classList.add(newTheme);
+                localStorage.setItem('menuTheme', newTheme);
+                updateThemeButtonText(newTheme);
+            });
+        }
+
+        function updateThemeButtonText(theme) {
+            if (themeToggle) {
+                themeToggle.textContent = theme === 'white-theme' ? '⚫ Switch to Dark' : '⚪ Switch to Light';
+            }
         }
     </script>
 </body>
