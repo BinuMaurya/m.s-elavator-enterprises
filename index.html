@@ -195,19 +195,25 @@
         @media (max-width: 1024px) {
             .main-nav {
                 position: absolute;
-                top: 100%;
+                top: 70px;
                 right: 0;
-                left: auto;
+                left: 0;
                 width: 100%;
-                max-width: 400px;
-                background: #ffffff;
+                max-width: 100%;
+                background: #060a13;
                 border: 1px solid #00d2ff;
-                border-radius: 0 0 0 12px;
+                border-radius: 0;
                 flex-direction: column;
                 align-items: center;
                 gap: 18px;
                 padding: 20px 0 28px;
                 opacity: 0;
+                pointer-events: none;
+                transform: translateY(-10px);
+                transition: opacity 0.28s ease, transform 0.28s ease;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+                z-index: 99999 !important;
+            }
                 pointer-events: none;
                 transform: translateY(-10px);
                 transition: opacity 0.28s ease, transform 0.28s ease;
@@ -583,14 +589,14 @@
             /* Mobile Menu White Background Fix */
             .main-nav {
                 position: absolute;
-                top: 100%;
+                top: 70px;
                 right: 0;
-                left: auto;
+                left: 0;
                 width: 100%;
-                max-width: 400px;
-                background: #ffffff;
+                max-width: 100%;
+                background: #060a13;
                 border: 1px solid #00d2ff;
-                border-radius: 0 0 0 12px;
+                border-radius: 0;
                 flex-direction: column;
                 align-items: center;
                 gap: 18px;
@@ -599,8 +605,8 @@
                 pointer-events: none;
                 transform: translateY(-10px);
                 transition: opacity 0.28s ease, transform 0.28s ease;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-                z-index: 100;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+                z-index: 99999 !important;
             }
 
             .main-nav.open {
@@ -1445,6 +1451,49 @@
                 display: block;
             }
         }
+
+        /* Light Mode Styling */
+        body.light-mode {
+            background-color: #f8fafc !important;
+            color: #0f172a !important;
+        }
+
+        body.light-mode .hero-section, 
+        body.light-mode .about-section,
+        body.light-mode .team-hierarchy-section,
+        body.light-mode .contact-section {
+            background: #ffffff !important;
+            color: #0f172a !important;
+        }
+
+        body.light-mode h1, 
+        body.light-mode h2, 
+        body.light-mode h3,
+        body.light-mode p {
+            color: #0f172a !important;
+        }
+
+        body.light-mode .tagline {
+            color: #00d2ff !important;
+        }
+
+        body.light-mode .section-title-box h2 {
+            color: #0f172a !important;
+        }
+
+        body.light-mode nav a {
+            color: #0f172a !important;
+        }
+
+        body.light-mode .main-nav {
+            background: #ffffff !important;
+        }
+
+        body.light-mode .main-nav a {
+            color: #0f172a !important;
+            background: #f0f9ff !important;
+            border-color: #00d2ff !important;
+        }
     </style>
 </head>
 <body>
@@ -1876,20 +1925,27 @@
         mainNav.classList.add(savedTheme);
         updateThemeButtonText(savedTheme);
 
+        // Handle both click and touchstart for mobile
         if (themeToggle) {
-            themeToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const isWhiteTheme = mainNav.classList.contains('white-theme');
-                const newTheme = isWhiteTheme ? 'black-theme' : 'white-theme';
-                
-                mainNav.classList.remove('white-theme', 'black-theme');
-                mainNav.classList.add(newTheme);
-                localStorage.setItem('menuTheme', newTheme);
-                updateThemeButtonText(newTheme);
-                
-                console.log('Theme changed to:', newTheme);
+            ['click', 'touchstart'].forEach(eventType => {
+                themeToggle.addEventListener(eventType, function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle body light mode
+                    document.body.classList.toggle('light-mode');
+                    
+                    // Toggle menu theme
+                    const isWhiteTheme = mainNav.classList.contains('white-theme');
+                    const newTheme = isWhiteTheme ? 'black-theme' : 'white-theme';
+                    
+                    mainNav.classList.remove('white-theme', 'black-theme');
+                    mainNav.classList.add(newTheme);
+                    localStorage.setItem('menuTheme', newTheme);
+                    updateThemeButtonText(newTheme);
+                    
+                    console.log('Theme changed to:', newTheme);
+                }, { passive: false });
             });
         }
     </script>
