@@ -13,6 +13,12 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
+        :root {
+            --accent-color: #00d2ff;
+            --card-bg: #060a13;
+            --border-color: rgba(255, 255, 255, 0.15);
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -30,7 +36,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             overflow: hidden;
         }
 
@@ -56,20 +62,21 @@
         }
 
         header {
-            position: relative;
+            position: absolute;
+            top: 0;
             z-index: 3;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 6%;
+            padding: 18px 5%;
             width: 100%;
             background: linear-gradient(to bottom, rgba(6,10,19,0.8), transparent);
             gap: 12px;
         }
 
         .logo {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -128,15 +135,12 @@
             box-shadow: 0 10px 24px rgba(0, 210, 255, 0.3);
         }
 
-
-
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 0 6%;
-            max-width: 900px;
-            margin-top: auto;
-            margin-bottom: auto;
+            padding: 0 5%;
+            margin-top: 80px;
+            max-width: 100%;
         }
 
         .main-nav {
@@ -145,33 +149,6 @@
             justify-content: flex-end;
             align-items: center;
             gap: 12px;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 18px 5%;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.4rem;
-            }
-
-            .section-title-box h2 {
-                font-size: 2rem;
-            }
-
-            .section-title-box .sub-title {
-                font-size: 0.85rem;
-            }
-
-            .nav-whatsapp-btn {
-                font-size: 0.85rem;
-                padding: 10px 14px;
-            }
         }
 
         .logo-container {
@@ -204,7 +181,7 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 2.4rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 25px;
@@ -212,14 +189,19 @@
         }
 
         .hero-content p {
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             color: #cbd5e1;
             line-height: 1.7;
             margin-bottom: 40px;
-            max-width: 650px;
+            max-width: 100%;
         }
 
-        .btn-group { display: flex; gap: 20px; }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 20px;
+        }
 
         .btn-primary {
             padding: 15px 35px;
@@ -233,6 +215,8 @@
             text-transform: uppercase;
             box-shadow: 0 4px 20px rgba(0, 210, 255, 0.4);
             transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
         }
 
         .btn-primary:hover {
@@ -248,7 +232,7 @@
 
         .section-title-box .sub-title {
             color: #00d2ff;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 700;
@@ -257,7 +241,7 @@
         }
 
         .section-title-box h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
         }
 
@@ -268,7 +252,14 @@
             margin: 20px auto 0;
         }
 
-        /* ------------------ VIDEO PORTFOLIO SHOWCASE (NEW!) ------------------ */
+        .title-line-left {
+            width: 60px;
+            height: 3px;
+            background: #00d2ff;
+            margin: 20px 0;
+        }
+
+        /* ------------------ VIDEO PORTFOLIO SHOWCASE ------------------ */
         .video-showcase {
             padding: 100px 8%;
             background-color: #0b111e;
@@ -276,7 +267,7 @@
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 40px;
             margin-bottom: 40px;
         }
@@ -318,42 +309,40 @@
             line-height: 1.5;
         }
 
-        /* ------------------ IMAGE GALLERY GRID (HEAVY PHOTOS DISPLAY) ------------------ */
+        /* ------------------ IMAGE GALLERY GRID ------------------ */
         .photo-gallery {
             padding: 100px 8%;
             background-color: #060a13;
         }
 
-        /* ================= FIXED GALLERY GRID STYLING ================= */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    align-items: start; /* Isse elements ek dusre ke upar overlap nahi karenge */
-}
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            align-items: start;
+        }
 
-.gallery-item {
-    position: relative;
-    height: 300px; /* Sabhi normal images ki height automatic handle hogi */
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
+        .gallery-item {
+            position: relative;
+            height: 420px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
 
-/* FIXED: Tall portrait images will span rows beautifully without breaking the container */
-.gallery-item.tall {
-    grid-row: span 2;
-    height: 620px; /* (300px + 300px + 20px gap) ke hisab se ekdum perfect alignment */
-}
+        .gallery-item.tall {
+            height: 420px;
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Isse photo bina stretch hue box me fit ho jayegi */
-    transition: transform 0.5s ease;
-}
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
         .gallery-item:hover img {
             transform: scale(1.1);
         }
@@ -376,6 +365,311 @@
         .img-overlay h4 { font-size: 1.1rem; color: #ffffff; }
         .img-overlay p { font-size: 0.85rem; color: #00d2ff; }
 
+        /* ------------------ ABOUT SECTION ------------------ */
+        .about-section {
+            padding: 100px 8%;
+            background-color: #060a13;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-desc {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .owner-badge {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .owner-icon {
+            font-size: 2rem;
+            background: rgba(0, 210, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            line-height: 1;
+        }
+
+        .owner-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .owner-info p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: #0b111e;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card.highlight {
+            border-color: rgba(0, 210, 255, 0.3);
+            background: linear-gradient(145deg, #0b111e, #060a13);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #00d2ff;
+            margin-bottom: 10px;
+        }
+
+        .stat-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .stat-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ------------------ TEAM HIERARCHY SECTION (Cleaned Up) ------------------ */
+        .team-hierarchy-section {
+            padding: 100px 8%;
+            background-color: #0d1527;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hierarchy-title-box {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hierarchy-title-box .sub-title {
+            color: #00d2ff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .hierarchy-title-box h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .hierarchy-subtitle {
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 15px auto 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .hierarchy-tree-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hierarchy-level {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .node-badge {
+            background: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 15px var(--accent-color);
+            border: 1px solid #fff;
+        }
+
+        .profile-card-horizontal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            background: #060a13;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .premium-border {
+            border: 2px solid #00d2ff;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+        }
+
+        .profile-img-horizontal {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(0, 210, 255, 0.4);
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+
+        .profile-img-horizontal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-details-horizontal {
+            padding: 10px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .profile-details-horizontal h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .company-tag {
+            color: #00d2ff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 4px;
+            margin-bottom: 12px;
+        }
+
+        .profile-bio {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .hierarchy-flow-line {
+            font-size: 1.5rem;
+            color: rgba(0, 210, 255, 0.4);
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+
+        .supervisors-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .supervisor-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .supervisor-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .supervisor-img-box {
+            flex-shrink: 0;
+        }
+
+        .supervisor-img-box img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+
+        .supervisor-details p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-top: 10px;
+            color: #cbd5e1;
+        }
+        
+        .supervisor-details {
+            width: 100%;
+        }
+
+        .supervisor-details h4 {
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+
+        .supervisor-details p { text-align: left; }
+
+        .labour-showcase-card {
+            background: linear-gradient(135deg, #060a13 0%, #03070e 100%);
+            border: 1px dashed rgba(0, 210, 255, 0.3);
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .labour-showcase-card .node-badge {
+            margin-bottom: 20px;
+        }
+        .labour-showcase-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .labour-showcase-card p {
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
         /* ------------------ CONTACT & FOOTER ------------------ */
         .contact-section {
             padding: 100px 8%;
@@ -384,15 +678,16 @@
 
         .contact-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 50px;
         }
 
         .contact-form-box {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px;
+            padding: 30px;
             border-radius: 8px;
+            width: 100%;
         }
 
         .input-group {
@@ -423,6 +718,72 @@
             text-transform: uppercase;
         }
 
+        /* ------------------ LIGHTBOX STYLES ------------------ */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .lightbox-close:hover { color: #bbb; }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Header & Contact Section Cleanup */
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-box img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+        }
+        .brand-name span {
+            color: #00d2ff;
+        }
+        .contact-info-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+        .contact-info-block h3 { font-size: 2rem; }
+        .contact-info-block .info-text { color: #94a3b8; line-height: 1.7; font-size: 1.1rem; }
+        .contact-details-list { display: flex; flex-direction: column; gap: 15px; }
+
         footer {
             text-align: center;
             padding: 40px;
@@ -431,190 +792,117 @@
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Responsive Layout */
-        @media (max-width: 1024px) {
-            .gallery-container { grid-template-columns: repeat(2, 1fr); }
-            .gallery-item.tall { height: 350px; grid-row: auto; }
-            .video-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 992px) {
-            .hero-content h1 { font-size: 3.4rem; }
-            .video-grid { grid-template-columns: 1fr; }
-            .gallery-container { grid-template-columns: repeat(2, 1fr); }
-            .contact-container { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.4rem; }
-            .hero {
-                justify-content: flex-start;
-            }
-            .hero-content {
-                padding: 0 5%;
-            }
-            .hero-overlay {
-                background: linear-gradient(180deg, rgba(6, 10, 19, 0.95) 0%, rgba(6, 10, 19, 0.65) 100%);
-            }
-            header {
-                padding: 18px 5%;
-                justify-content: space-between;
-            }
-            nav {
-                width: 100%;
-                justify-content: center;
-                gap: 10px;
-            }
-            .hero-content p {
-                font-size: 1.05rem;
-                max-width: 100%;
-            }
-            .btn-group { flex-direction: column; align-items: stretch; }
-            .btn-primary { width: 100%; text-align: center; }
-            .contact-container { display: block; padding: 0; }
-            .gallery-container { grid-template-columns: 1fr; }
-            .gallery-item.tall { height: 420px; }
-            .about-container { grid-template-columns: 1fr; gap: 30px; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .workforce-grid { grid-template-columns: 1fr; }
-            .supervisors-row { grid-template-columns: 1fr; }
-            .profile-card-horizontal {
-                flex-direction: column;
-                text-align: center;
-            }
-            .profile-img-horizontal { margin: 0 auto 18px; }
-            .contact-form-box { width: 100%; }
-            .hero-video { height: 110%; }
-            .logo-container { justify-content: center; padding: 12px 5%; }
-            .logo-container span { font-size: 1.3rem; }
-            .section-title-box h2 { font-size: 2rem; }
-            .section-title-box .sub-title { font-size: 0.85rem; }
-            .contact-form-box { padding: 30px; }
-            .contact-container { gap: 30px; }
-            .nav-whatsapp-btn { font-size: 0.85rem; padding: 10px 14px; }
-        }
-        /* ==========================================================================
-           FIX: RESPONSIVE NAVIGATION MENU (Mobile-First)
-           ========================================================================== */
-
-        /* --- Base Styles (Mobile) --- */
-        /* By default, the menu is set up for mobile */
+        /* Menu Button Stylings */
         .menu-toggle-btn {
-            display: block; /* Show button on mobile */
-            background: #00d2ff;
-            color: #060a13;
+            background: none;
             border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 700;
+            color: #ffffff;
+            font-size: 1.8rem;
             cursor: pointer;
-            font-size: 0.9rem;
+            display: block;
         }
 
-        .main-nav {
-            display: none; /* Hide nav list on mobile by default */
-        }
-
-        .main-nav.open {
-            display: flex; /* Show when JS adds .open class */
+        .navbar-links {
+            display: none;
             flex-direction: column;
             position: absolute;
             top: 70px;
             left: 0;
             width: 100%;
-            background-color: #060a13;
-            padding: 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+            background: #060a13;
+            padding: 20px;
             z-index: 99999;
-            gap: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+            list-style: none;
+            gap: 10px;
+        }
+        .navbar-links.active {
+            display: flex;
+        }
+        .navbar-links li a {
+            display: block;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,210,255,0.3);
+            border-radius: 6px;
+            text-align: center;
         }
 
-        /* --- Desktop Styles (Applied when screen is 769px or wider) --- */
-        @media (min-width: 769px) {
-            .menu-toggle-btn {
-                display: none; /* Hide button on desktop */
+        /* ================= DESKTOP LAYOUT ================= */
+        @media (min-width: 768px) {
+            .hero-content {
+                padding: 0 6%;
+                max-width: 900px;
+                margin-top: auto;
+                margin-bottom: auto;
             }
 
-            .main-nav, .main-nav.open { /* Apply to nav whether it's open or not */
-                display: flex;
+            .hero-content h1 {
+                font-size: 3.4rem;
+            }
+
+            .btn-group {
                 flex-direction: row;
-                position: static;
-                background: transparent;
-                box-shadow: none;
+            }
+
+            .btn-primary {
                 width: auto;
-                height: auto;
-                padding: 0;
-                gap: 20px;
+            }
+            .section-title-box h2 {
+                font-size: 2.5rem;
+            }
+            .section-title-box .sub-title {
+                font-size: 0.9rem;
+            }
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-item.tall {
+                height: 350px;
+                grid-row: auto;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .profile-card-horizontal {
+                flex-direction: row;
+                text-align: left;
+            }
+            .profile-img-horizontal {
+                margin-right: 20px;
+                margin-bottom: 0;
+                width: 150px;
+                height: 150px;
+            }
+            .supervisors-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .supervisor-img-box img {
+                width: 80px;
+                height: 80px;
+            }
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        /* This media query ensures the hero content is layered correctly on mobile */
-        @media (max-width: 768px) {
-            /* The hero section z-index is still needed to ensure it goes behind the open menu */
-            .hero-section, .hero-content, h1, p {
-                position: relative !important;
-                z-index: 5 !important;
-            }
-        }
-        /* ================= FORCE REFRESH FOR LAPTOP & MOBILE ================= */
-
-        /* 1. LAPTOP SCREEN DISPLAY (Pehle se chal rahi saari mobile settings ko block karega) */
-        @media (min-width: 769px) {
-            /* Mobile button ko laptop par dikhne se rokega */
-            .menu-toggle-btn {
-                display: none !important;
+        @media (min-width: 992px) {
+            .hero-content h1 {
+                font-size: 4rem;
             }
 
-            /* Saare links ko ek simple transparent line me layega, dabba gayab */
-            .navbar-links {
-                display: flex !important;
-                flex-direction: row !important;
-                position: static !important;
-                background: transparent !important;
-                box-shadow: none !important;
-                width: auto !important;
-                padding: 0 !important;
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .navbar-links li a {
-                background: transparent !important;
-                border: none !important;
-                color: #ffffff !important;
+            .gallery-container {
+                grid-template-columns: repeat(4, 1fr);
             }
-        }
-
-        /* 2. MOBILE SCREEN DISPLAY (Sirf mobile par design switch karega) */
-        @media (max-width: 768px) {
-            .menu-toggle-btn {
-                display: block !important; /* Mobile par button dikhega */
+            .gallery-item.tall {
+                grid-row: span 2;
+                height: 620px;
             }
-
-            .navbar-links {
-                display: none !important; /* Default me hidden */
-                flex-direction: column !important;
-                position: absolute !important;
-                top: 100% !important;
-                left: 0 !important;
-                width: 100% !important;
-                background-color: #060a13 !important; /* Solid black/dark background */
-                padding: 20px !important;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
-                z-index: 99999 !important;
-            }
-
-            /* Jab javascript toggle active karega */
-            .navbar-links.active {
-                display: flex !important;
-            }
-            
-            /* Mobile ke dabbe ke buttons */
-            .navbar-links li a {
-                display: block !important;
-                background: #111927 !important;
-                border: 1px solid #00d2ff !important;
-                margin-bottom: 8px !important;
-                text-align: center !important;
-                border-radius: 4px !important;
+            .about-container {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -628,30 +916,29 @@
         <div class="hero-overlay"></div>
 
         <!-- COMPLETE FIXED HEADER NAV BLOCK -->
-        <nav style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; background: #060a13; border-bottom: 1px solid rgba(0, 210, 255, 0.2); z-index: 100000;">
-            
+        <header>
             <!-- Left Side: Logo & Brand Name -->
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <img src="logo.png" alt="M.S Logo" style="height: 40px; width: auto; object-fit: contain;" onerror="this.style.display='none';">
-                <span style="font-size: 1.5rem; font-weight: 800; color: #ffffff; letter-spacing: 1px; font-family: sans-serif;">
-                    M.S <span style="color: #00d2ff;">ELEVATORS</span>
+            <div class="logo-box">
+                <img src="logo.png" alt="M.S Logo" onerror="this.style.display='none';">
+                <span class="brand-name">
+                    M.S <span >ELEVATORS</span>
                 </span>
             </div>
 
-            <!-- Center/Right Side: Laptop Tabs (Yeh class responsive.css se direct control hogi) -->
-            <!-- 💡 TIP: Is ul tag ko dhayan se dekhiye, isme jo class hai vahi aapki CSS me honi chahiye -->
-            <ul 
-">
-    <li><a href="#home" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">Home</a></li>
-    <li><a href="#videos" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">System Videos</a></li>
-    <li><a href="#photos" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">Site Photos</a></li>
-    <li><a href="#about" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">About Us</a></li>
-    <li><a href="#contact" style="background: transparent !important; border: none !important; color: #ffffff !important; font-weight: 600 !important; text-decoration: none !important; padding: 8px 16px !important;">Contact Us</a></li>
-            </ul>
-
-            <!-- Mobile Button (Yeh laptop par CSS ke through gayab ho jayega) -->
-            
-        </nav>
+            <!-- Right Side: Navbar Links -->
+            <nav>
+                <ul class="navbar-links" id="menuLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#videos">System Videos</a></li>
+                    <li><a href="#gallery">Site Photos</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team-hierarchy">Our Team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle-btn" id="menuBtn" aria-label="Toggle Menu">☰</button>
+            </nav>
+        </header>
 
         <div class="hero-content">
             <span class="tagline">M.S Enterprises Infrastructure</span>
@@ -663,6 +950,7 @@
         </div>
     </section>
 
+    <!-- VIDEO PORTFOLIO SHOWCASE -->
     <section class="video-showcase" id="videos">
         <div class="section-title-box">
             <span class="sub-title">Live Operation</span>
@@ -721,6 +1009,7 @@
         </div>
     </section>
 
+    <!-- IMAGE GALLERY GRID -->
     <section class="photo-gallery" id="gallery">
         <div class="section-title-box">
             <span class="sub-title">Engineering Layout</span>
@@ -730,289 +1019,311 @@
 
         <div class="gallery-container">
             <div class="gallery-item tall">
-                <img src="WhatsApp Image 2026-06-20 at 00.21.55 (1).jpeg" alt="Vertical Shaft">
+                <img src="images/1.jpeg" alt="Vertical Shaft">
                 <div class="img-overlay">
-                    
+                    <h4>Vertical Infrastructure</h4>
                     <p>Deep structure alignment</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="WhatsApp Image 2026-06-23 at 03.44.14.jpeg" alt="Pulley Grid">
+                <img src="images/2.jpeg" alt="Pulley Grid">
                 <div class="img-overlay">
-                   
+                    <h4>Heavy Pulley Arrays</h4>
                     <p>Mechanical Lifters Engineering</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="WhatsApp Image 2026-06-23 at 03.20.18.jpeg" alt="Control Panel Photo">
+                <img src="images/3.jpeg" alt="Control Panel Photo">
                 <div class="img-overlay">
-                    
+                    <h4>Automation Grid</h4>
                     <p>Circuit relays & safety limits</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="WhatsApp Image 2026-06-24 at 00.03.45.jpeg" alt="Rail tracks">
+                <img src="images/4.jpeg" alt="Rail tracks">
                 <div class="img-overlay">
-                    
+                    <h4>Shuttle Tracks</h4>
                     <p>Floor alignment safety checks</p>
                 </div>
             </div>
 
-            <div class="gallery-item ">
-                <img src="WhatsApp Image 2026-06-20 at 00.21.58.jpeg" alt="Concrete Shaft Depth">
+            <div class="gallery-item">
+                <img src="images/5.jpeg" alt="Concrete Shaft Depth">
                 <div class="img-overlay">
-                    
+                    <h4>Foundation Pit</h4>
                     <p>Structural anchoring stability</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="WhatsApp Image 2026-06-23 at 03.24.53.jpeg" alt="Corridor Layout">
+                <img src="images/6.jpeg" alt="Corridor Layout">
                 <div class="img-overlay">
-                    
+                    <h4>Modular Storage Bays</h4>
                     <p>Flanked by blue storage modules</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <img src="WhatsApp Image 2026-06-24 at 00.04.56.jpeg" alt="Dense Structure">
+                <img src="images/7.jpeg" alt="Dense Structure">
                 <div class="img-overlay">
-                    
+                    <h4>Frame Assembly</h4>
                     <p>Multi-car allocation footprint</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ================= AG-LI SECTION: ABOUT US ================= -->
-<section id="about" class="about-section">
-    <div class="about-container">
-        <!-- Left Column: Company & Owner Profile -->
-        <div class="about-text-block">
-            <span class="sub-title">Who We Are</span>
-            <h2>Driving Innovation In Heavy Engineering & Automation</h2>
-            <div class="title-line-left"></div>
-            
-            <p class="about-desc">
-                Welcome to <strong>M.S Enterprises</strong>. We are a premier multi-skilled engineering firm specializing in the end-to-end execution of automated multi-level car parking systems and industrial elevator infrastructure. From receiving structural designs to manufacturing precise mechanical layers, site installation, and comprehensive technical reroofing, we handle it all.
-            </p>
-            
-            <!-- Owner Detail Tag -->
-            <div class="owner-badge">
-                <div class="owner-icon">💼</div>
-                <div class="owner-info">
-                    <h4>Administrative & Technical Management</h4>
-                    <p>Led by core operational excellence with a strong background in web-enabled database synchronization and digital workforce management.</p>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <!-- Left Column: Company Info -->
+            <div class="about-text-block">
+                <span class="sub-title">Who We Are</span>
+                <h2>Driving Innovation In Heavy Engineering & Automation</h2>
+                <div class="title-line-left"></div>
+                
+                <p class="about-desc">
+                    Welcome to <strong>M.S Enterprises</strong>. We are a premier multi-skilled engineering firm specializing in the end-to-end execution of automated multi-level car parking systems and industrial elevator infrastructure. From receiving structural designs to manufacturing precise mechanical layers, site installation, and comprehensive technical operations, we handle it all.
+                </p>
+                
+                <div class="owner-badge">
+                    <div class="owner-icon">💼</div>
+                    <div class="owner-info">
+                        <h4>Administrative & Technical Management</h4>
+                        <p>Led by core operational excellence with a strong background in web-enabled database synchronization and and digital workforce management.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Stats Grid -->
+            <div class="about-stats-block">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">10+</span>
+                        <h4>Core Technicians</h4>
+                        <p>Expert mechanical engineers handling chain tensioning, alignment, and bearing replacements.</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15+</span>
+                        <h4>On-Site Fitters</h4>
+                        <p>Dedicated workforce executing structure installations under strict workplace safety standards.</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <h4>In-House Operations</h4>
+                        <p>From automated attendance tracking to billing and salary calculations, our administrative workflow is fully digitized.</p>
+                    </div>
+                    <div class="stat-card highlight">
+                        <span class="stat-number">24/7</span>
+                        <h4>Maintenance Support</h4>
+                        <p>Quick response team for PLC troubleshooting and sudden mechanical breakdown checks.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Right Column: Team Size & Stats Grid -->
-        <div class="about-stats-block">
-            <div class="stats-grid">
-                <!-- Stat 1 -->
-                <div class="stat-card">
-                    <span class="stat-number">10+</span>
-                    <h4>Core Technicians</h4>
-                    <p>Expert mechanical engineers handling chain tensioning, alignment, and bearing replacements.</p>
-                </div>
-                <!-- Stat 2 -->
-                <div class="stat-card">
-                    <span class="stat-number">15+</span>
-                    <h4>On-Site Fitters</h4>
-                    <p>Dedicated workforce executing structure installations under strict workplace safety standards.</p>
-                </div>
-                <!-- Stat 3 -->
-                <div class="stat-card">
-                    <span class="stat-number">100%</span>
-                    <h4>In-House Operations</h4>
-                    <p>From automated attendance tracking to billing and salary calculations, our administrative workflow is fully digitized.</p>
-                </div>
-                <!-- Stat 4 -->
-                <div class="stat-card highlight">
-                    <span class="stat-number">24/7</span>
-                    <h4>Maintenance Support</h4>
-                    <p>Quick response team for PLC troubleshooting and sudden mechanical breakdown checks.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================= ORGANIZATIONAL TEAM HIERARCHY ================= -->
-<section id="about" class="team-hierarchy-section">
-    <div class="hierarchy-title-box">
-        <span class="sub-title">Corporate Structure</span>
-        <h2>M.S Enterprises Management Hierarchy</h2>
-        <p class="hierarchy-subtitle">Our structured operational flow ensures seamless execution from office administration to ground-level technical site deployment.</p>
-        <div class="title-line"></div>
+    <!-- START OF UPDATED TEAM HIERARCHY SECTION -->
+<section id="team-hierarchy" class="team-hierarchy-section" >
+    <div class="hierarchy-title-box" >
+        <span class="sub-title" >Corporate Structure</span>
+        <h2 >M.S Enterprises Management Hierarchy</h2>
+        <div class="title-line" ></div>
     </div>
 
-    <div class="hierarchy-tree-container">
+    <div class="hierarchy-tree-container" >
         
-        <!-- LEVEL 1: OWNER (TOP Tier) -->
-       <div class="hierarchy-level level-1">
-        <div class="node-badge" style="color: #00d2ff;">Suraj kumar mishra: FOUNDER & OWNER</div>
-        <div class="profile-card-horizontal premium-border">
-            <div class="profile-img-horizontal">
-                <img src="WhatsApp Image 2026-06-24 at 04.22.44 (1).jpeg" alt="Owner Sir" onerror="this.src='https://placehold.co/240x260/060a13/00d2ff?text=Owner+Sir'">
-            </div>
-            <div class="profile-details-horizontal">
-                <h3>Proprietor & Chief Director</h3>
-                <p class="company-tag" style="color: #00d2ff;">10+ Years of Industrial Expertise</p>
-                <p class="profile-bio">
-                    Leading M.S Enterprises with a profound vision, our Owner Sir brings over <strong>10 years of heavy engineering and multi-level automated parking system core expertise</strong>. Under his strategic guidance, the company has successfully executed high-profile commercial and residential projects across premium zones in Mumbai.
-                </p>
-                <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px;">
-                    <span style="background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.3); color: #00d2ff; padding: 4px 10px; font-size: 0.8rem; border-radius: 4px; font-weight: 600;">📍 Andheri Sites</span>
-                    <span style="background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.3); color: #00d2ff; padding: 4px 10px; font-size: 0.8rem; border-radius: 4px; font-weight: 600;">📍 Marine Lines</span>
-                    <span style="background: rgba(0, 210, 255, 0.1); border: 1px solid rgba(0, 210, 255, 0.3); color: #00d2ff; padding: 4px 10px; font-size: 0.8rem; border-radius: 4px; font-weight: 600;">📍 Goregaon Hub</span>
+        <!-- LEVEL 1: FOUNDER & OWNER -->
+        <div class="hierarchy-level" >
+            <div class="node-badge" >FOUNDER & OWNER</div>
+            <div class="profile-card-horizontal" >
+                <div class="profile-img-horizontal" >
+                    <img src="images/owner.jpeg" alt="Suraj Kumar Mishra" >
+                </div>
+                <div class="profile-details-horizontal">
+                    <h3 >Suraj Kumar Mishra</h3>
+                    <p class="company-tag" >Proprietor & Chief Director</p>
+                    <p class="profile-bio" >
+                        Bringing over 10 years of heavy engineering leadership. He oversees global project acquisitions, structural designs approval, and strategic blueprint deployments across industrial sectors.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="hierarchy-flow-line">▼</div>
+        <!-- Connecting Flow Arrow -->
+        <div class="hierarchy-flow-line" >▼</div>
 
-    <div class="hierarchy-level level-2">
-        <div class="node-badge" style="color: #00ffcc;">Binu maurya: OPERATIONS & TECHNICAL MANAGEMENT</div>
-        <div class="profile-card-horizontal manager-border">
-            <div class="profile-img-horizontal" style="border-color: rgba(0, 255, 204, 0.2);">
-                <img src="WhatsApp Image 2026-06-24 at 04.56.39.jpeg" alt="Technical Manager" onerror="this.src='https://placehold.co/200x200/060a13/00ffcc?text=Manager'">
+    <!-- NEW LEVEL 1.5: GENERAL MANAGER (YOUR PROFILE) -->
+        <div class="hierarchy-level" >
+            <div class="node-badge" >GENERAL MANAGER</div>
+            <div class="profile-card-horizontal" >
+                <div class="profile-img-horizontal" >
+                    <img src="images/manager.jpeg" alt="Manager" >
+                </div>
+                <div class="profile-details-horizontal">
+                    <h3 >Binu maurya</h3>
+                    <p class="company-tag" >General Manager & Operations Head</p>
+                    <p class="profile-bio" >
+                        Oversees daily corporate operations, client relationship modules, project execution timelines, and bridge communications between the field supervisors and the chief proprietor.
+                    </p>
+                </div>
             </div>
-            <div class="profile-details-horizontal">
-                <h3>General & Technical Manager</h3>
-                <p class="company-tag" style="color: #00ffcc;">Administrative Head & Solutions Architect</p>
-                <p class="profile-bio">
-                    Oversees multi-skilled administrative workflows, automated billing layouts, and workforce deployment structures. Specializes in technical ecosystem designs—including full-stack MongoDB/Node.js backend synchronization tracking—bridges office automation with complex, real-time site execution logs seamlessly.
+        </div>
+
+        <!-- Connecting Flow Arrow -->
+        <div class="hierarchy-flow-line" >▼</div>
+
+        <!-- LEVEL 2: SITE EXECUTIVE INCHARGES -->
+        <div class="hierarchy-level" >
+            <div class="node-badge" >LEVEL 02: SITE EXECUTIVE INCHARGES</div>
+            <div class="supervisors-row" >
+                <!-- Supervisor 1 -->
+                <div class="supervisor-card" >
+                    <div class="supervisor-img-box" >
+                        <img src="images/supervisor1.jpeg" alt="Technical Site Incharge" >
+                    </div>
+                    <div class="supervisor-details">
+                        <h3 >Santosh shivsharan</h3>
+                        <h4 >Technical Site Incharge</h4>
+                        <p >Manages on-site mechanical layer assembly, precision alignment, calibration, and chain tensioning workflows.</p>
+                    </div>
+                </div>
+                <!-- Supervisor 2 -->
+                <div class="supervisor-card" >
+                    <div class="supervisor-img-box" >
+                        <img src="images/supervisor2.jpeg" alt="Operations Site Incharge" >
+                    </div>
+                    <div class="supervisor-details">
+                        <h4 >Amit kumar</h4>
+                        <p >Operations Site Incharge</p>
+                        <p >Oversees workforce deployment, strict safety compliance monitoring, and daily progress reporting to the head office.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connecting Flow Arrow -->
+        <div class="hierarchy-flow-line" >▼</div>
+
+        <!-- LEVEL 3: GROUND WORKFORCE -->
+        <div class="hierarchy-level" >
+            <div class="node-badge" >LEVEL 03: GROUND WORKFORCE EXECUTION</div>
+            <div class="labour-showcase-card" >
+                <div class="group-icon" >🛠️</div>
+                <h4 >Core Technical Fitters & Operators</h4>
+                <div class="group-count" >25+ Skilled Personnel Engaged On-Site</div>
+                <p class="group-desc" >
+                    Our dedicated pool of field technicians, precision welders, and on-site fitters executing complex structural assemblies under strict Work at Height and industrial regulations.
                 </p>
             </div>
         </div>
-    </div>
-
-    <div class="hierarchy-flow-line">▼</div>
-
-    <div class="hierarchy-level level-3-1">
-        <div class="node-badge" style="color: #ffa500;">Santosh shivsharan: GROUND EXECUTION LEAD (TECHNICAL)</div>
-        <div class="profile-card-horizontal supervisor-border">
-            <div class="profile-img-horizontal" style="border-color: rgba(255, 165, 0, 0.2);">
-                <img src="WhatsApp Image 2026-06-24 at 22.52.07.jpeg" alt="Site Incharge 1" onerror="this.src='https://placehold.co/300x250/060a13/ffa500?text=Supervisor+1'">
-            </div>
-            <div class="profile-details-horizontal">
-                <h3>On-Site Execution Head</h3>
-                <p class="company-tag" style="color: #ffa500;">Technical Operations Supervisor</p>
-                <p class="profile-bio">
-                    Directs the core labor force on complex structural adjustments and technical assemblies. Highly efficient in interpreting structural layouts, balancing mechanical safety protocols, and monitoring active workspace productivity directly on the field.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="hierarchy-flow-line">▼</div>
-
-    <div class="hierarchy-level level-3-2">
-        <div class="node-badge" style="color: #ffa500;">Amit Kumar: GROUND EXECUTION LEAD (OPERATIONS)</div>
-        <div class="profile-card-horizontal supervisor-border">
-            <div class="profile-img-horizontal" style="border-color: rgba(255, 165, 0, 0.2);">
-                <img src="WhatsApp Image 2026-06-24 at 05.19.13.jpeg" alt="Site Incharge 2" onerror="this.src='https://placehold.co/300x250/060a13/ffa500?text=Supervisor+2'">
-            </div>
-            <div class="profile-details-horizontal">
-                <h3>On-Site Execution Head</h3>
-                <p class="company-tag" style="color: #ffa500;">Labour Safety & Performance Lead</p>
-                <p class="profile-bio">
-                    Manages active cloud attendance logs, identifies operational vs non-performing assets on site, and ensures 100% adherence to uniform guidelines, industrial rope safety norms, and technical project deadlines.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="hierarchy-flow-line">▼</div>
-
-    <!-- LEVEL 4: GROUND WORKFORCE (Cleaned Up) -->
-    <div class="hierarchy-level level-4">
-        <div class="node-badge" style="color: #00d2ff;">LEVEL 04: SITE FITTERS & TECHNICAL TEAM</div>
-        <div class="profile-card-horizontal labour-border">
-            <div class="profile-img-horizontal" style="border-color: rgba(0, 210, 255, 0.3); background: #060a13; display: flex; align-items: center; justify-content: center;">
-                <!-- Glowing Team Icon -->
-                <span style="font-size: 3rem; filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));">👥</span>
-            </div>
-            <div class="profile-details-horizontal">
-                <h3>Core Fitters, Welders & Operators</h3>
-                <p class="company-tag" style="color: #00d2ff;">25+ Skilled Personnel Engaged On-Site</p>
-                <p class="profile-bio">
-                    Our dedicated pool of ground-level professionals executing high-capacity mechanical puzzle and tower parking structure installations. Equipped with rigorous training, they manage chain tensioning, heavy pulley setup, and bearing replacements under strict workplace regulations.
-                </p>
-            </div>
-        </div>
-    </div>
 </section>
+<!-- END OF UPDATED TEAM HIERARCHY SECTION -->
 
+    <!-- CONTACT SECTION -->
     <section class="contact-section" id="contact">
+        <div class="section-title-box">
+            <span class="sub-title">Get In Touch</span>
+            <h2>Request Infrastructure Consultation</h2>
+            <div class="title-line"></div>
+        </div>
+
         <div class="contact-container">
-            <div class="contact-info-box">
-              <!-- LEFT COLUMN: BUSINESS INQUIRY TEXT -->
-<div class="contact-info-box">
-    <span class="sub-title" style="color: #00d2ff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Business Inquiry</span>
-    <h2 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-top: 10px; margin-bottom: 20px; line-height: 1.2;">
-        Let's Build Your <br><span style="color: #00d2ff;">Smart Parking Project</span>
-    </h2>
-    <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px;">
-        M.S Enterprises specializes in developing premium layouts for advanced infrastructure. We manage the entire lifecycle of your project—from structural engineering and execution to final rigorous safety testing and deployment.
-    </p>
-    <div style="display: flex; align-items: center; gap: 10px; color: #94a3b8; font-size: 0.95rem; font-weight: 600;">
-        <span style="color: #00d2ff; font-size: 1.2rem;">📍</span> 
-        M.S Enterprises | Industrial Solutions Specialist
-    </div>
-</div>
+            <div class="contact-info-block">
+                <h3>Let's build intelligent space configurations together.</h3>
+                <p class="info-text">
+                    Whether you require a multi-tier puzzle parking layout, an autonomous tower design, high-capacity platform lifts, or routine preventative system overhaul maintenance—our engineering matrix is fully ready.
+                </p>
+                <div class="contact-details-list">
+                    <p><strong>📍 Corporate Base:</strong> India</p>
+                    <p><strong>✉️ Administrative Inbox:</strong> contact@msenterprises.com</p>
+                    <p><strong>⚡ Emergency Breakdown Response:</strong> Available 24/7</p>
+                </div>
+            </div>
+
             <div class="contact-form-box">
-                <form action="#">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Inquiry submitted successfully!');">
                     <div class="input-group">
-                        <label>Client / Company Name</label>
-                        <input type="text" placeholder="Enter name" required>
+                        <label for="name">Full Name / Enterprise Label</label>
+                        <input type="text" id="name" required placeholder="Enter name">
                     </div>
                     <div class="input-group">
-                        <label>Contact Number</label>
-                        <input type="tel" placeholder="Enter mobile number" required>
+                        <label for="email">Contact Email Address</label>
+                        <input type="email" id="email" required placeholder="name@company.com">
                     </div>
                     <div class="input-group">
-                        <label>Required Car Slots Capacity</label>
-                        <select required>
-                            <option value="20">Up to 20 Cars slots</option>
-                            <option value="50">20 - 50 Cars slots</option>
-                            <option value="100">100+ Cars Massive Stacking</option>
+                        <label for="solution">Required Infrastructure System</label>
+                        <select id="solution">
+                            <option value="tower">Multi-Level Tower Parking System</option>
+                            <option value="puzzle">Automated Puzzle Grid Configurations</option>
+                            <option value="elevator">Heavy Industrial Freight Lifts</option>
+                            <option value="amc">Long-Term Maintenance Contracts (AMC)</option>
                         </select>
                     </div>
                     <div class="input-group">
-                        <label>Project Message</label>
-                        <textarea rows="4" placeholder="Enter project requirements or repair issues..."></textarea>
+                        <label for="msg">Project Scope Requirements</label>
+                        <textarea id="msg" rows="5" placeholder="Describe layout capacity, structural tiers, or maintenance details..."></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">Submit Order Details &rarr;</button>
+                    <button type="submit" class="submit-btn">Transmit Core Inquiry</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- LIGHTBOX CONTAINER -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+    </div>
+
     <footer>
-        <p>&copy; 2026 M.S Enterprises | Advanced Heavy Engineering & Multi-Parking Systems. All Rights Reserved.</p>
+        <p>&copy; 2026 M.S Enterprises | Premium Automated Parking Infrastructure & Structural Elevators. All Rights Reserved.</p>
     </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE NAV TOGGLE -->
     <script>
-        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
-        const mobileNav = document.querySelector('.navbar-links');
+        // --- MOBILE MENU SCRIPT ---
+        const menuBtn = document.getElementById('menuBtn');
+        const menuLinks = document.getElementById('menuLinks');
 
-        if (mobileNavToggle && mobileNav) {
-            mobileNavToggle.addEventListener('click', () => {
-                const isOpen = mobileNav.classList.toggle('active');
-                mobileNavToggle.setAttribute('aria-expanded', isOpen);
-            });
+        menuBtn.addEventListener('click', () => {
+            menuLinks.classList.toggle('active');
+        });
 
-            document.addEventListener('click', (event) => {
-                if (!mobileNav.contains(event.target) && !mobileNavToggle.contains(event.target) && mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    mobileNavToggle.setAttribute('aria-expanded', 'false');
-                }
+        // Close menu on click of a link (Mobile UX helper)
+        document.querySelectorAll('.navbar-links li a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuLinks.classList.remove('active');
             });
-        }
+        });
+
+        // --- LIGHTBOX SCRIPT ---
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.style.display = 'none';
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
